@@ -27,7 +27,7 @@ The roadmap looks something like this:
                 They add well-defined words to the lang, and do not change
                 base functionality of the lang.
 
-           > Extension Libraries -- (designated as "exlib")
+           > Extension Libraries -- (designated as "elib")
                 Extension libs are seprate to warn the user, these libraries
                 take advantage of the full power of forth.
                 They are not well-defined, and are allowed to have
