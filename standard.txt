@@ -1,0 +1,146 @@
+( Sane Forth Standard )
+
+NOTE: * is used as a wildcard character for prefix-words, and input,
+        it is not part of the words themselves.
+
+bye                                     \ Kills the forth
+
+\										\ Compiles to the end of the line as a comment
+(										\ Compiles to the next ) as a comment
+[										\ Compiles
+
+dup []
+drop []
+over []
+swap []
+nip
+rot
+tuck
+push
+pop
+top
+
+[size] alloc
+
++
+-
+*
+/
+mod
+
+and
+or
+xor
+not
+
+:
+;
+
+.
+
+<
+=
+>
+
+>BODY
+>IN
+>NUMBER
+>R
+?DUP
+ABORT
+ABORT"
+ABS
+ACCEPT
+ALIGN
+ALIGNED
+BASE
+BEGIN
+BL
+C!
+C,
+C@
+CELL+
+CELLS
+CHAR
+CHAR+
+CHARS
+CONSTANT
+COUNT
+CR
+CREATE
+DECIMAL
+DEPTH
+DO
+DOES>
+DROP
+DUP
+ELSE
+EMIT
+ENVIRONMENT?
+EVALUATE
+EXECUTE
+EXIT
+FILL
+FIND
+FM/MOD
+HERE
+HOLD
+I
+IF
+IMMEDIATE
+INVERT
+J
+KEY
+LEAVE
+LITERAL
+LOOP
+LSHIFT
+M*
+MAX
+MIN
+MOD
+MOVE
+NEGATE
+POSTPONE
+QUIT
+R>
+R@
+RECURSE
+REPEAT
+ROT
+RSHIFT
+S"
+S>D
+SIGN
+SM/REM
+SOURCE
+SPACE
+SPACES
+STATE
+SWAP
+THEN
+TYPE
+U.
+U<
+UM*
+UM/MOD
+UNLOOP
+UNTIL
+VARIABLE
+WHILE
+WORD
+
+[
+]
+
+[']
+[CHAR]
+
+
+[data] [address] store [size]
+       [address] read [size]
+
+#*
+(   Reads to the next space,
+    interprites that as an int,
+    pushes int onto stack       )
