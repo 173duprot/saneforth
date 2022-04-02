@@ -1,3 +1,83 @@
+\ Saneforth
+
+	Forth in under 100 lines of GNU C99.
+
+
+[0] Abstract
+
+	Forth is a extremly powerful, typeless language, however, imo, its elegence
+	is offen tainted by small, unelegent standard peices of code, which limit
+	hackability in a way that simply isn't forth-like.
+	
+	For example, in regular forth, literals are quite literally baked into the
+	interpriter, to the point where changing this behavior, adding debugigng 
+	features, anything - would require special hooks, weird hacks, and general
+	inconvient, uncomfortable and akward hacking.
+	
+	Saneforth looks to be remedy this problem, focusing specifically on
+	simplicity, modularity, extensibility, and most importantly
+	grockability - focusing entirely around the sane phliosophy[1].
+
+		Grokability - The ability understand completely and intuitively
+
+Possible solutions	
+	
+	To me, this is very un-forth like. ABLEforth solves this issue by putting
+	parsing words front and center stange, there is no built-in literals, all
+	data-types are handled the same way. 
+	
+[1] Sane phliosophy 
+
+	The best way to define the Sane phliosophy, is to contrast it with similar
+	phliosophies.
+	
+	Worse is better
+
+		Simplicity - simple implementation and interface.
+
+			- It is more important for the implementation to be simple than the interface.
+
+
+		Correctness - The design should be correct in all observable aspects.
+
+			- Correctness can be sacraficed for simplicity
+
+
+		Completeness - The design must cover as many important situations as is practical.
+
+			- Completeness can be sacrificed in favor of simplicity.
+			- Completeness can be sacrificed in favor of correctness.
+
+
+		Consistency - The design must not be overly inconsistent.
+
+			- Consistency can be sacrificed in favor of simplicity.
+			- Consistency can be sacrificed in favor of completeness.
+			- Completeness can be sacrificed in favor of correctness.
+	
+		
+	Sane
+		
+		Grokability
+			
+			
+How does Forth work?
+
+    Forth is essentially broken up into 2 parts:
+        - A VIRTUAL MACHENE that itterates over an array of code pointers.
+        - A "SHELL" that interprits text into an array of code pointers.
+    
+    A normal forth program will follow this diagram
+    
+    "string" -> shell -> {array} -> forth_vm
+                            
+
+core:           compile : ;
+varables:       stack-ptr rstack-ptr dict-ptr
+memory:         read write move
+parsing:        #
+math:           + - * / % 
+bin:            and or xor invert >> << 
 \ Sane Forth Standard
 
 Taking inspiration from the simplicity of the scheme standard, and with
