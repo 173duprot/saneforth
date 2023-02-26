@@ -58,8 +58,15 @@ Possible solutions
 		
 	Sane
 		
-		Grokability
-			
+		Grokability - Unsterstandable implementation and interface.
+
+		Correctness - The design should be correct in all observable aspects.
+
+		Extensibility - The design should be trivial too constuct any use-case.
+
+		Consistency - The design must be consistent.
+		
+
 			
 How does Forth work?
 
@@ -72,10 +79,10 @@ How does Forth work?
     "string" -> shell -> {array} -> forth_vm
                             
 
-core:           compile : ;
-varables:       stack-ptr rstack-ptr dict-ptr
+core:           alloc { = 
+varables:       mem stack rstack dict
 memory:         read write move
-parsing:        #
+parsing:        int float char str
 math:           + - * / % 
 bin:            and or xor invert >> << 
 \ Sane Forth Standard
@@ -91,7 +98,7 @@ The scope of this project is large in abition, and small in implimentation,
 The roadmap looks something like this:
 
     1. Release version 0.0 of the standard
-    2. Release an ultra-tiny non-optomized interpriter, written in C89
+    2. Release an ultra-tiny non-optomized interpriter, written in C99
     3. Play around for a couple weeks/months, itteratively improving
 
         (v0.1, v0.2, v0.3...)
@@ -113,10 +120,10 @@ The roadmap looks something like this:
                 They are not well-defined, and are allowed to have
                 single-character words, prefix words (Features[1]) , and even
                 extend and replace base-words.
-
+		
                 There is no limit to elib's power, so be very very carful with
                 them.
-
+		
                 (example
                     " - prefix word --	reads until the next " and compiles that
                                         into a null-terminated string.)
